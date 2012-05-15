@@ -8,40 +8,48 @@
 	BOOL isLogging;
 	NSMutableArray *_locations;
 	CLLocationManager *_locationManager;
-@private
-	NSTimer *_timer;
 }
 @synthesize startStopButton = _startStopButton;
 @synthesize tableView = _tableView;
 @synthesize clearButton = _clearButton;
+@synthesize errorLabel = _errorLabel;
 @synthesize locations = _locations;
 @synthesize locationManager = _locationManager;
-@synthesize timer = _timer;
 
 
 - (void)viewDidLoad {
-	_locations = [[NSMutableArray alloc] init];
+	_locations = [NSMutableArray arrayWithContentsOfFile:@"locations"];
+	if (!_locations) {
+		_locations = [[NSMutableArray alloc] init];
+	}
 	isLogging = NO;
 	self.clearButton.enabled = self.locations.count > 0;
+
+	self.locationManager = [[CLLocationManager alloc] init];
+	self.locationManager.delegate = self;
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
 }
 
 - (void)viewDidUnload {
 	[self setClearButton:nil];
+    [self setErrorLabel:nil];
 	[super viewDidUnload];
 }
 
 - (IBAction)startStopButtonPressed:(id)sender {
 	if (isLogging) {
+		[self.locationManager stopMonitoringSignificantLocationChanges];
+
 		[self.startStopButton setTitle:@"Start" forState:UIControlStateNormal];
 		isLogging = NO;
-		[self.timer invalidate];
-		self.timer = nil;
+
 		self.clearButton.enabled = self.locations.count > 0;
 	} else {
 		[self.startStopButton setTitle:@"Stop" forState:UIControlStateNormal];
 		isLogging = YES;
-		self.timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(fireTimer:) userInfo:nil repeats:YES];
-		[self.timer fire];
+
+		[self.locationManager startMonitoringSignificantLocationChanges];
+
 		self.clearButton.enabled = NO;
 	}
 }
@@ -81,16 +89,7 @@
 	return cell;
 }
 
-- (void)fireTimer:(NSTimer *)timer {
-	self.locationManager = [[CLLocationManager alloc] init];
-	self.locationManager.delegate = self;
-	[self.locationManager startUpdatingLocation];
-}
-
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-	[self.locationManager stopUpdatingLocation];
-	self.locationManager = nil;
-
 	CLLocation *location = [[CLLocation alloc] initWithCoordinate:newLocation.coordinate
 	                                                     altitude:newLocation.altitude
 			                                   horizontalAccuracy:newLocation.horizontalAccuracy
@@ -100,6 +99,13 @@
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]]
 			withRowAnimation:UITableViewRowAnimationTop];
 	self.clearButton.enabled = self.locations.count > 0;
+
+	[self.locations writeToFile:@"locations" atomically:YES];
 }
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+	self.errorLabel.text = [error localizedDescription];
+}
+
 
 @end

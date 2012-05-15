@@ -9,11 +9,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property(nonatomic, strong, readonly) NSArray *locations;
-
-@property(nonatomic, strong) NSTimer *timer;
 
 - (IBAction)startStopButtonPressed:(id)sender;
 - (IBAction)clearButtonPressed:(id)sender;
