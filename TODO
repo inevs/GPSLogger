@@ -1,8 +1,8 @@
-- Exportieren in GPX
-- Namen setzen
 - persistieren
+- Namen für Trip setzen
 - timerintervall setzen
 - Wahl zwischen timer oder LocationChangeEvent
 - Ort dazuschreiben
 - EyeCandy
 - Zeitverschiebung einstellen lassen
+- verschiedene trips speichern

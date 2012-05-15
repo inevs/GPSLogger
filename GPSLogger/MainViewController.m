@@ -1,4 +1,5 @@
 #import <CoreLocation/CoreLocation.h>
+#import <MessageUI/MessageUI.h>
 #import "MainViewController.h"
 #import "LocationCell.h"
 #import "GPXExporter.h"
@@ -54,7 +55,20 @@
 - (IBAction)gpxButtonPressed:(id)sender {
 	GPXExporter *gpxExporter = [[GPXExporter alloc] init];
 	NSString *gpxString = [gpxExporter produceGPXFromLocations:self.locations];
-	NSLog(@"gpxString = %@", gpxString);
+	if ([MFMailComposeViewController canSendMail]) {
+		MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+		NSData *gpxData = [gpxString dataUsingEncoding:NSUTF8StringEncoding];
+		[mailComposeViewController addAttachmentData:gpxData mimeType:@"text" fileName:@"locations.gpx"];
+		[mailComposeViewController setMessageBody:@"meine Locations" isHTML:NO];
+		[mailComposeViewController setSubject:@"Locations"];
+		mailComposeViewController.mailComposeDelegate = self;
+		[self presentModalViewController:mailComposeViewController animated:YES];
+	}
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+	[self dismissModalViewControllerAnimated:YES];
+	NSLog(@"result = %d", result);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -23,6 +23,7 @@
 		263C81C7154F07BA001BDCF6 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C81C6154F07BA001BDCF6 /* LocationCell.m */; };
 		263C81CF154F0FF6001BDCF6 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 263C81CE154F0FF6001BDCF6 /* TODO */; };
 		263C81CF154F0FF6001BDCF8 /* GPXExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C81CF154F0FF6001BDCF7 /* GPXExporter.m */; };
+		26B322951562B45200F2D37B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B322921562B44400F2D37B /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		263C81CE154F0FF6001BDCF6 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		263C81CF154F0FF6001BDCF7 /* GPXExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXExporter.m; sourceTree = "<group>"; };
 		263C81CF154F0FF6001BDCF9 /* GPXExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXExporter.h; sourceTree = "<group>"; };
+		26B322921562B44400F2D37B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				263C818D154F01A1001BDCF6 /* Foundation.framework in Frameworks */,
 				263C818F154F01A1001BDCF6 /* CoreGraphics.framework in Frameworks */,
 				263C81C0154F0332001BDCF6 /* CoreLocation.framework in Frameworks */,
+				26B322951562B45200F2D37B /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +112,7 @@
 		263C8189154F01A1001BDCF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26B322921562B44400F2D37B /* MessageUI.framework */,
 				263C81BE154F0327001BDCF6 /* CoreLocation.framework */,
 				263C818A154F01A1001BDCF6 /* UIKit.framework */,
 				263C818C154F01A1001BDCF6 /* Foundation.framework */,
