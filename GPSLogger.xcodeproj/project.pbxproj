@@ -17,12 +17,12 @@
 		263C81A4154F01A1001BDCF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C818A154F01A1001BDCF6 /* UIKit.framework */; };
 		263C81A5154F01A1001BDCF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C818C154F01A1001BDCF6 /* Foundation.framework */; };
 		263C81AD154F01A1001BDCF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 263C81AB154F01A1001BDCF6 /* InfoPlist.strings */; };
-		263C81B0154F01A1001BDCF6 /* GPSLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C81AF154F01A1001BDCF6 /* GPSLoggerTests.m */; };
 		263C81BA154F01BA001BDCF6 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263C81B9154F01BA001BDCF6 /* Storyboard.storyboard */; };
 		263C81BD154F01D6001BDCF6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C81BC154F01D6001BDCF6 /* MainViewController.m */; };
 		263C81C0154F0332001BDCF6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C81BE154F0327001BDCF6 /* CoreLocation.framework */; };
 		263C81C7154F07BA001BDCF6 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C81C6154F07BA001BDCF6 /* LocationCell.m */; };
 		263C81CF154F0FF6001BDCF6 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 263C81CE154F0FF6001BDCF6 /* TODO */; };
+		263C81CF154F0FF6001BDCF8 /* GPXExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C81CF154F0FF6001BDCF7 /* GPXExporter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +50,6 @@
 		263C81A2154F01A1001BDCF6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		263C81AA154F01A1001BDCF6 /* GPSLoggerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GPSLoggerTests-Info.plist"; sourceTree = "<group>"; };
 		263C81AC154F01A1001BDCF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		263C81AE154F01A1001BDCF6 /* GPSLoggerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSLoggerTests.h; sourceTree = "<group>"; };
-		263C81AF154F01A1001BDCF6 /* GPSLoggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPSLoggerTests.m; sourceTree = "<group>"; };
 		263C81B9154F01BA001BDCF6 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		263C81BB154F01D6001BDCF6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		263C81BC154F01D6001BDCF6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -59,6 +57,8 @@
 		263C81C5154F07B9001BDCF6 /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
 		263C81C6154F07BA001BDCF6 /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		263C81CE154F0FF6001BDCF6 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		263C81CF154F0FF6001BDCF7 /* GPXExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXExporter.m; sourceTree = "<group>"; };
+		263C81CF154F0FF6001BDCF9 /* GPXExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXExporter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +121,8 @@
 		263C8190154F01A1001BDCF6 /* GPSLogger */ = {
 			isa = PBXGroup;
 			children = (
+				263C81CF154F0FF6001BDCF9 /* GPXExporter.h */,
+				263C81CF154F0FF6001BDCF7 /* GPXExporter.m */,
 				263C8191154F01A1001BDCF6 /* Supporting Files */,
 				263C8199154F01A1001BDCF6 /* AppDelegate.h */,
 				263C819A154F01A1001BDCF6 /* AppDelegate.m */,
@@ -147,8 +149,6 @@
 		263C81A8154F01A1001BDCF6 /* GPSLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				263C81AE154F01A1001BDCF6 /* GPSLoggerTests.h */,
-				263C81AF154F01A1001BDCF6 /* GPSLoggerTests.m */,
 				263C81A9154F01A1001BDCF6 /* Supporting Files */,
 			);
 			path = GPSLoggerTests;
@@ -274,6 +274,7 @@
 				263C819B154F01A1001BDCF6 /* AppDelegate.m in Sources */,
 				263C81BD154F01D6001BDCF6 /* MainViewController.m in Sources */,
 				263C81C7154F07BA001BDCF6 /* LocationCell.m in Sources */,
+				263C81CF154F0FF6001BDCF8 /* GPXExporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				263C81B0154F01A1001BDCF6 /* GPSLoggerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,9 +1,8 @@
-- alle Einträge löschen
-- Date selbst setzen oder herausfinden was das für ein Date ist
-- Ort dazuschreiben
-- persistieren
 - Exportieren in GPX
+- Namen setzen
+- persistieren
 - timerintervall setzen
 - Wahl zwischen timer oder LocationChangeEvent
+- Ort dazuschreiben
 - EyeCandy
 - Zeitverschiebung einstellen lassen
