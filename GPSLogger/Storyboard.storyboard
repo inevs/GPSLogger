@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="D2x-to-TNN">
-                                <rect key="frame" x="0.0" y="138" width="320" height="322"/>
+                                <rect key="frame" x="0.0" y="83" width="320" height="377"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="LocationCell" id="HIU-TZ-Bv4" customClass="LocationCell">
@@ -106,19 +106,11 @@
                                     <action selector="gpxButtonPressed:" destination="sgs-wo-lSd" eventType="touchUpInside" id="fDP-sZ-6oe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="P0o-Di-ZNI">
-                                <rect key="frame" x="20" y="65" width="280" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="clearButton" destination="TDy-64-4xK" id="FED-vV-nlO"/>
-                        <outlet property="errorLabel" destination="P0o-Di-ZNI" id="fBX-Jb-6Yi"/>
                         <outlet property="startStopButton" destination="ED1-bO-gqG" id="uMl-Ad-8oI"/>
                         <outlet property="tableView" destination="D2x-to-TNN" id="thv-Rn-cUx"/>
                     </connections>

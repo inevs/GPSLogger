@@ -12,13 +12,20 @@
 @synthesize startStopButton = _startStopButton;
 @synthesize tableView = _tableView;
 @synthesize clearButton = _clearButton;
-@synthesize errorLabel = _errorLabel;
 @synthesize locations = _locations;
 @synthesize locationManager = _locationManager;
 
 
 - (void)viewDidLoad {
-	_locations = [NSMutableArray arrayWithContentsOfFile:@"locations"];
+	NSError *error;
+	NSURL *path = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+	                                                     inDomain:NSUserDomainMask
+			                                    appropriateForURL:nil create:YES error:&error];
+	if (!path) {
+		NSLog(@"error = %@", [error localizedDescription]);
+	}
+
+	_locations = [NSMutableArray arrayWithContentsOfURL:path];
 	if (!_locations) {
 		_locations = [[NSMutableArray alloc] init];
 	}
@@ -28,12 +35,6 @@
 	self.locationManager = [[CLLocationManager alloc] init];
 	self.locationManager.delegate = self;
 	self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-}
-
-- (void)viewDidUnload {
-	[self setClearButton:nil];
-    [self setErrorLabel:nil];
-	[super viewDidUnload];
 }
 
 - (IBAction)startStopButtonPressed:(id)sender {
@@ -104,7 +105,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-	self.errorLabel.text = [error localizedDescription];
+	NSLog(@"error = %@", [error localizedDescription]);
 }
 
 

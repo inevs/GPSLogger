@@ -1,7 +1,6 @@
 - persistieren
 - Namen für Trip setzen
-- timerintervall setzen
-- Wahl zwischen timer oder LocationChangeEvent
+- genauigkeit einstellen lassen
 - Ort dazuschreiben
 - EyeCandy
 - Zeitverschiebung einstellen lassen
